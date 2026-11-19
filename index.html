@@ -34,7 +34,7 @@
 
             <h1>Hi, I'm <span>Surjya Dhal</span></h1>
 
-            <h3>Aspiring Web Developer</h3>
+            <h3>I'm a <span id="typing"></span></h3>
 
             <p class="intro">
                 BCA Student | Web Development Enthusiast |
@@ -134,6 +134,55 @@
     <footer>
         <p>© 2026 Surjya Dhal | All Rights Reserved</p>
     </footer>
+
+    
+<script>
+const words = [
+    "Web Developer",
+    "BCA Student",
+    "Programmer",
+    "Technology Enthusiast"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeEffect() {
+
+    const typing = document.getElementById("typing");
+    const currentWord = words[wordIndex];
+
+    if (!deleting) {
+        typing.textContent =
+            currentWord.substring(0, charIndex + 1);
+
+        charIndex++;
+
+        if (charIndex === currentWord.length) {
+            deleting = true;
+            setTimeout(typeEffect, 1200);
+            return;
+        }
+
+    } else {
+        typing.textContent =
+            currentWord.substring(0, charIndex - 1);
+
+        charIndex--;
+
+        if (charIndex === 0) {
+            deleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+        }
+    }
+
+    setTimeout(typeEffect, deleting ? 50 : 100);
+}
+
+typeEffect();
+</script>
+</body>
 
 </body>
 </html>

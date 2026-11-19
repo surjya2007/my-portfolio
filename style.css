@@ -399,3 +399,15 @@ footer {
     }
 
 }
+#typing {
+    color: #a78bfa;
+    border-right: 3px solid #38bdf8;
+    padding-right: 4px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}

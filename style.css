@@ -411,3 +411,43 @@ footer {
         border-color: transparent;
     }
 }
+
+/* SCROLL REVEAL ANIMATION */
+
+.section {
+    opacity: 0;
+    transform: translateY(45px);
+    transition: opacity 0.8s ease,
+                transform 0.8s ease;
+}
+
+.section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Individual card animation */
+
+.card,
+.project-card {
+    transition: transform 0.4s ease,
+                opacity 0.4s ease,
+                box-shadow 0.4s ease,
+                border-color 0.4s ease;
+}
+
+.card:hover,
+.project-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Accessibility: reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+    .section,
+    .card,
+    .project-card {
+        transition: none;
+        transform: none;
+    }
+}

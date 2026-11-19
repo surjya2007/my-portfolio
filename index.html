@@ -182,7 +182,35 @@ function typeEffect() {
 
 typeEffect();
 </script>
-</body>
+    
+<script>
+const revealSections = document.querySelectorAll(".section");
+
+const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("show");
+
+                observer.unobserve(entry.target);
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.15
+    }
+);
+
+revealSections.forEach(section => {
+    revealObserver.observe(section);
+});
+</script>
+
 
 </body>
 </html>
